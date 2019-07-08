@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tutors`
+-- Database: `tutor_smkasm_db`
 --
 
 -- --------------------------------------------------------
@@ -42,9 +42,6 @@ CREATE TABLE `guru` (
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`guru_id`, `guru_nama`, `guru_telefon`, `guru_nokp`, `guru_tlahir`, `guru_namaguna`, `guru_katalaluan`) VALUES
-(2, 'Cuba 11111', '01001010', '9999999999', '2018-05-01', NULL, NULL);
-
 --
 -- Indexes for dumped tables
 --
@@ -63,7 +60,7 @@ ALTER TABLE `guru`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

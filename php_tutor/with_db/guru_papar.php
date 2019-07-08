@@ -56,7 +56,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<button type="button" id="kembali" name="kembali" class="btn btn-danger" onclick="window.history.back();">Kembali</button>
+				<button type="button" id="kembali" name="kembali" onclick="window.history.back();">Kembali</button>
 			</td>
 		</tr>
 	</tbody>

@@ -17,9 +17,10 @@
 
 		if(!$result)
 		{
-			$mesej = "RALAT: Gagal Tambah Rekod Guru";
+			$_SESSION['mesej'] = "RALAT: Gagal Tambah Rekod Guru";
 		} else {
-			header("Location: guru_senarai.php?status=1");
+			$_SESSION['mesej'] = "Tambah Rekod Guru Berjaya!";
+			header("Location: guru_senarai.php"); // redirect @ beralih ke lokasi
 		}
 
 	}
@@ -33,54 +34,56 @@
 </head>
 <body>
 
-	<form class="form-horizontal" method="POST">
+	<form method="POST">
 		<fieldset>
 
 		<!-- Form Name -->
 		<legend>Tambah Rekod Guru</legend>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_nama">Nama Guru</label>  
-		  <div class="col-md-4">
-		  <input id="guru_nama" name="guru_nama" placeholder="Nama Guru" class="form-control input-md" required="" type="text">
+		<div>
+		  <label for="guru_nama">Nama Guru</label>  
+		  <div >
+		  <input type="text" id="guru_nama" name="guru_nama" placeholder="Nama Guru" required="" >
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_telefon">Telefon (H/P)</label>  
-		  <div class="col-md-4">
-		  <input id="guru_telefon" name="guru_telefon" placeholder="Telefon (H/P)" class="form-control input-md" required="" type="text">
+		<div>
+		  <label for="guru_telefon">Telefon (H/P)</label>  
+		  <div>
+		  <input type="text" id="guru_telefon" name="guru_telefon" placeholder="Telefon (H/P)" required="">
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_nokp">No Kad Pengenalan</label>  
-		  <div class="col-md-4">
-		  <input id="guru_nokp" name="guru_nokp" placeholder="No Kad Pengenalan" class="form-control input-md" required="" type="text">
+		<div>
+		  <label for="guru_nokp">No Kad Pengenalan</label>  
+		  <div>
+		  <input type="text" id="guru_nokp" name="guru_nokp" placeholder="No Kad Pengenalan" required="">
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_tlahir">Tarikh Lahir</label>  
-		  <div class="col-md-4">
-		  <input id="guru_tlahir" name="guru_tlahir" placeholder="Tarikh Lahir" class="form-control input-md" required="" type="date">
+		<div>
+		  <label for="guru_tlahir">Tarikh Lahir</label>  
+		  <div>
+		  <input type="date" id="guru_tlahir" name="guru_tlahir" placeholder="Tarikh Lahir" required="">
 		    
 		  </div>
 		</div>
 
 		<!-- Button (Double) -->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="hantar"></label>
-		  <div class="col-md-8">
-		    <button id="hantar" name="hantar" class="btn btn-primary">Hantar</button>
-		    <button type="reset" id="reset" name="reset" class="btn btn-danger">Set Semula</button>
+		<div>
+		  <label for="hantar"></label>
+		  <div>
+		    <button id="hantar" name="hantar">Hantar</button>
+		    <button type="reset" id="reset" name="reset">Set Semula</button>
+			<br>
+			<a href="guru_senarai.php">Kembali ke Senarai Guru</a>
 		  </div>
 		</div>
 

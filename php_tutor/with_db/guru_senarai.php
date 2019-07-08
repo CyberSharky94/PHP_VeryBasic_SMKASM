@@ -12,10 +12,17 @@
 
 		if(!$result) 
 		{
-			$mesej = "RALAT: Rekod Gagal Dibuang";
+			$_SESSION['mesej'] = "RALAT: Rekod Guru Gagal Dibuang";
 		} else {
-			$mesej = "Rekod Telah Berjaya Dibuang";
+			$_SESSION['mesej'] = "Rekod Guru Telah Berjaya Dibuang";
 		}
+	}
+
+	// Mesej Tambah Rekod Berjaya
+	if(isset($_SESSION['mesej']))
+	{
+		$mesej = $_SESSION['mesej'];
+		unset($_SESSION['mesej']); // bersihkan rekod mesej
 	}
 
 ?>
@@ -27,7 +34,12 @@
 </head>
 <body>
 
-	<table class="table table-bordered table-striped table-hover">
+	<h2>Senarai Guru</h2>
+	<hr>
+
+	<a href="guru_tambah.php">Tambah Rekod Guru</a><br><br>
+
+	<table border="1" class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr>
 				<th>
@@ -54,8 +66,15 @@
 			<?php 
 			$sql = "SELECT * FROM guru";
 			$result = mysqli_query($conn, $sql);
-			$i=0;
-			while($row = mysqli_fetch_array($result))  { $i++; ?>
+
+			$num_rows = mysqli_num_rows($result);
+
+			if($num_rows > 0)
+			{
+				$i=0;
+				while($row = mysqli_fetch_array($result))  { 
+					$i++; 
+			?>
 			<tr>
 				<td>
 					<?php echo $i; ?>
@@ -73,17 +92,37 @@
 					<?php echo $row['guru_tlahir']; ?>
 				</td>
 				<td>
-					<button type="button" id="papar" name="papar" class="btn btn-primary" onclick="window.location.href='guru_papar.php?id=<?php echo $row['guru_id']; ?>'">Papar</button>
+					<button type="button" id="papar" name="papar" onclick="window.location.href='guru_papar.php?id=<?php echo $row['guru_id']; ?>'">Papar</button>
 		    		<button type="button" id="kemaskini" name="kemaskini" class="btn btn-warning" onclick="window.location.href='guru_kemaskini.php?id=<?php echo $row['guru_id']; ?>'">Kemaskini</button>
-		    		<form method="POST">
+					
+					<!-- Borang Untuk Buang Rekod -->
+					<form method="POST">
 		    			<input type="hidden" name="guru_id" value="<?php echo $row['guru_id']; ?>">
-		    			<button id="buang_rekod" name="buang_rekod" class="btn btn-warning">Buang Rekod</button>
+		    			<button id="buang_rekod" name="buang_rekod" class="btn btn-warning" onclick="return confirm('Adakah anda pasti untuk membuang rekod ini?');">Buang Rekod</button>
 		    		</form>
 				</td>
 			</tr>
-			<?php } ?>
+			<?php 
+				} 
+			} else { ?>
+			<tr>
+				<td colspan="6">Tiada rekod ditemui.</td>
+			</tr>
+			<?php
+			}
+			?>
 		</tbody>
 	</table>
+
+	<!-- JavaScript -->
+	<script>
+
+		// Paparan Mesej
+		<?php if(isset($mesej)) { ?>
+			alert("<?php echo $mesej; ?>");
+		<?php } ?>
+
+	</script>
 
 </body>
 </html>

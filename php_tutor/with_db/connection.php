@@ -7,17 +7,18 @@
 	$host = "localhost";
 	$username = "root";
 	$pass = "";
-	$dbname = "tutors";
+	$dbname = "tutor_smkasm_db";
 
 
 	$conn = mysqli_connect($host, $username, $pass, $dbname);
 
 	// Check connection
-	// if (mysqli_connect_errno())
- 	//  	{			
-	//   	echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	// } else {
-	// 	echo "Successfully connected to the Database. =)";
-	// }
+	if (mysqli_connect_errno())
+	{			
+	  	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	} else {
+		// echo "Successfully connected to the Database. =)";
+	}
 
+	session_start();
 ?>

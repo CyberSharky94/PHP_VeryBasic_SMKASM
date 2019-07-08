@@ -19,9 +19,10 @@
 
 		if(!$result)
 		{
-			$mesej = "RALAT: Gagal Tambah Rekod Guru";
+			$_SESSION['mesej'] = "RALAT: Gagal Kemaskini Rekod Guru";
 		} else {
-			header("Location: guru_senarai.php?status=2");
+			$_SESSION['mesej'] = "Kemaskini Rekod Guru Berjaya";
+			header("Location: guru_senarai.php");
 		}
 	}
 
@@ -44,47 +45,48 @@
 		<legend>Tambah Rekod Guru</legend>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_nama">Nama Guru</label>  
-		  <div class="col-md-4">
-		  <input id="guru_nama" name="guru_nama" placeholder="Nama Guru" class="form-control input-md" required="" type="text" value="<?php echo $data['guru_nama']; ?>">
+		<div >
+		  <label for="guru_nama">Nama Guru</label>  
+		  <div>
+		  <input id="guru_nama" name="guru_nama" placeholder="Nama Guru" required="" type="text" value="<?php echo $data['guru_nama']; ?>">
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_telefon">Telefon (H/P)</label>  
-		  <div class="col-md-4">
-		  <input id="guru_telefon" name="guru_telefon" placeholder="Telefon (H/P)" class="form-control input-md" required="" type="text" value="<?php echo $data['guru_telefon']; ?>">
+		<div >
+		  <label for="guru_telefon">Telefon (H/P)</label>  
+		  <div>
+		  <input id="guru_telefon" name="guru_telefon" placeholder="Telefon (H/P)" required="" type="text" value="<?php echo $data['guru_telefon']; ?>">
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_nokp">No Kad Pengenalan</label>  
-		  <div class="col-md-4">
-		  <input id="guru_nokp" name="guru_nokp" placeholder="No Kad Pengenalan" class="form-control input-md" required="" type="text" value="<?php echo $data['guru_nokp']; ?>">
+		<div >
+		  <label for="guru_nokp">No Kad Pengenalan</label>  
+		  <div>
+		  <input id="guru_nokp" name="guru_nokp" placeholder="No Kad Pengenalan" required="" type="text" value="<?php echo $data['guru_nokp']; ?>">
 		    
 		  </div>
 		</div>
 
 		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="guru_tlahir">Tarikh Lahir</label>  
-		  <div class="col-md-4">
-		  <input id="guru_tlahir" name="guru_tlahir" placeholder="Tarikh Lahir" class="form-control input-md" required="" type="date" value="<?php echo $data['guru_tlahir']; ?>">
+		<div >
+		  <label for="guru_tlahir">Tarikh Lahir</label>  
+		  <div>
+		  <input id="guru_tlahir" name="guru_tlahir" placeholder="Tarikh Lahir" required="" type="date" value="<?php echo $data['guru_tlahir']; ?>">
 		    
 		  </div>
 		</div>
 
 		<!-- Button (Double) -->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="hantar"></label>
-		  <div class="col-md-8">
-		    <button id="hantar" name="hantar" class="btn btn-primary">Hantar</button>
-		    <button type="reset" id="reset" name="reset" class="btn btn-danger">Set Semula</button>
+		<div >
+		  <label for="hantar"></label>
+		  <div>
+		    <button id="hantar" name="hantar">Hantar</button>
+		    <button type="reset" id="reset" name="reset">Set Semula</button>
+			<a href="guru_senarai.php">Kembali ke Senarai Guru</a>
 		  </div>
 		</div>
 

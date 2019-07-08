@@ -26,10 +26,10 @@
 <body>
 	<form>
 		Data: <input type="text" name="data">
-		<button name="hantar">Hantar</button>
+		<button>Hantar</button>
 	</form>
 	<hr>
 	<h3>Keputusan</h3>
-	Data <b>GET</b>: <?php echo @$data; ?>
+	Data <b>GET</b>: <?php if(isset($data)) { echo $data; } ?>
 </body>
 </html>

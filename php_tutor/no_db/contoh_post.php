@@ -30,6 +30,6 @@
 	</form>
 	<hr>
 	<h3>Keputusan</h3>
-	Data <b>POST</b>: <?php echo @$data; ?>
+	Data <b>POST</b>: <?php if(isset($data)) { echo $data; } ?>
 </body>
 </html>
